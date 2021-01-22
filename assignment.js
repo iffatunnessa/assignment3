@@ -73,6 +73,24 @@ function hotelCost(numberOfDays){
 }
 
 function megaFriend(nameOfFriends){
-    
+    var [name1,name2] = [nameOfFriends[0],""];
+    if(!isNaN(nameOfFriends)){
+        return "String is empty!";
+    }
+    if (/[^a-zA-Z]/.test(name1)){
+        return "Other characters have been found";
+    }
+    for(var i = 1; i < nameOfFriends.length; i++){
+        name2 = nameOfFriends[i];
+        if(name2[0] == name2[0].toLowerCase()){
+            return "Name should be started with a capital letter.";
+        }
+        if (/[^a-zA-Z]/.test(name2)){
+            return "Other characters have been found";
+        }
+        if(name1.length < name2.length){
+            name1 = name2;
+        }
+    }
+    return name1;
 }
-console.log(megaFriend(["popy","mudin","pudin","a","lolol"]));
